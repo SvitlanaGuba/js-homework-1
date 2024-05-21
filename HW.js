@@ -288,11 +288,11 @@ metersArray.forEach(meters => {
     let mText = (meters % 10 === 1 && meters % 100 !== 11) ? 'метр' : (meters >= 2 && meters <= 4) ? 'метри' : 'метрів';
 
     if (meters % 10 === 1 && meters % 100 !== 11) {
-        console.log(`${meters} метр це ${kilometers.toFixed(3)} ${kmText}`);
+        console.log(`${meters} ${mText} це ${kilometers.toFixed(3)} ${kmText}`);
     } else if (meters >= 2 && meters <= 4) {
-        console.log(`${meters} метри це ${kilometers.toFixed(3)} ${kmText}`);
+        console.log(`${meters} ${mText} це ${kilometers.toFixed(3)} ${kmText}`);
     } else if (meters >= 5) {
-        console.log(`${meters} метрів це ${kilometers.toFixed(3)} ${kmText}`);
+        console.log(`${meters} ${mText} це ${kilometers.toFixed(3)} ${kmText}`);
     } else {
         console.log(`${meters} ${mText} це ${kilometers.toFixed(3)} ${kmText}`);
     }
