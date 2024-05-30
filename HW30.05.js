@@ -6,41 +6,55 @@
     то виводити в консоль текст "Ми йдемо в інше кафе"
     (Змінні типу інтеджер містять кількість продуктів в наявності у вигляді вхідних даних)*/
 
-let isHamburger = 4;
-let isPotatoFry = 1;
+const checkOrder = () => {
+    let isHamburger = 4;
+    let hamburgersAvailable = 4;
+    let isPotatoFry = 1;
 
-if (isHamburger >= 4 && isPotatoFry >= 1) {
-    console.log('Ми поїли');
-} else {
-    console.log('Ми йдемо в інше кафе');
-}
+    if (hamburgersAvailable >= isHamburger && isPotatoFry >= 1) {
+        console.log('Ми поїли');
+    } else {
+        console.log('Ми йдемо в інше кафе');
+    }
+};
+
+checkOrder();
 
 //#2
 /* Напишіть умовну інструкцію if, що перевіряє, чи знаходиться значення ціни товару між 1000 та 1900 включно.
     Результат виводити в консоль.*/
 
+
 let ourPrice = 1500;
 
-if (ourPrice >= 1000 && ourPrice <= 1900) {
-    console.log('Good price');
-} else {
-    console.log('The price is not good');
-}
+let somePrice = (price) => {
+    if (price >= 1000 && price <= 1900) {
+        console.log('Good price');
+    } else {
+        console.log('The price is not good');
+    }
+    return price;
+};
+
+somePrice(ourPrice);
 
 //#3
 /* Напишіть умовну інструкцію if, щоб перевіряє, чи значення ціни товару не знаходиться між 1000 та 1900 включно.
     Реалізуйте два варіанти, один з оператором НЕ !, а інший без цього оператора.
     Результат виводити в консоль.*/
 
-let userPrice = 15;
+let userNewPrice = (userPrice) => {
+    if (!(userPrice>=1000 && userPrice<=1900)) {
+        console.log('OK')
+    }
 
-if (!(userPrice>=1000 && userPrice<=1900)) {
-    console.log('OK')
-} if (userPrice<1000 ||  userPrice > 1900) {
-    console.log('Price good for users')
-} else {
-    console.log('Bad good for users')
+    if (userPrice<1000 ||  userPrice > 1900) {
+        console.log('Price good for users')
+    } else {
+        console.log('Bad good for users')
+    }
 }
+userNewPrice(15);
 
 //№4
 /*
@@ -51,17 +65,20 @@ if (!(userPrice>=1000 && userPrice<=1900)) {
 let seasonNumber = 3;
 let seasonArr = ['Winter', 'Spring', 'Summer', 'Autumn'];
 
-if (seasonNumber === 1) {
-    console.log(seasonArr[0])
-} else if (seasonNumber === 2) {
-    console.log(seasonArr[1])
-} else if (seasonNumber === 3) {
-    console.log(seasonArr[2])
-} else if (seasonNumber === 4) {
-    console.log(seasonArr[3])
-} else {
-    console.log('ERROR')
+let someSeasons = (seasonNumber,seasonArr) => {
+    if (seasonNumber === 1) {
+        console.log(seasonArr[0])
+    } else if (seasonNumber === 2) {
+        console.log(seasonArr[1])
+    } else if (seasonNumber === 3) {
+        console.log(seasonArr[2])
+    } else if (seasonNumber === 4) {
+        console.log(seasonArr[3])
+    } else {
+        console.log('ERROR')
+    }
 }
+someSeasons(seasonNumber, seasonArr);
 
 //#5
 /* Задано 3 числа (a, b, c), які не рівні між собою.
@@ -69,124 +86,136 @@ if (seasonNumber === 1) {
     (не середнє арифметичне значення, а яке з трьох заданих чисел среднє за значенням)
     Результат виводити в консоль.*/
 
-let a = 5;
-let b = 3;
-let c = 20;
+let comparisonNumber = (a,b,c) => {
 
-if ((a>b&&a<c)||(a<b&&a>c)) {
-    console.log(a)
-} else if ((b>a&&b<c)||(b<a&&b>c)){
-    console.log(b)
-} else {
-    console.log(c)
+    if ((a>b&&a<c)||(a<b&&a>c)) {
+        console.log(`${a}`)
+    } else if ((b>a&&b<c)||(b<a&&b>c)){
+        console.log(`${b}`)
+    } else if (c>a && c<b || a>c && b>c){
+        console.log(`${c}`)
+    }
 }
 
-// let a = 5;
-// let b = 3;
-// let c = 20;
-//
-// if ((a>b&&a<c)||(a<b&&a>c)) {
-//     console.log(`${a}`)
-// } else if ((b>a&&b<c)||(b<a&&b>c)){
-//     console.log(`${b}`)
-// } else if (c>a && c<b || a>c && b>c){
-//     console.log(`${c}`)
-// }
+comparisonNumber(5,3,20)
 
 //#6
 /* Задано номер дня тижня.
     За заданим номером вивести назву дня тижня використовуючи switch.
     Результат виводити в консоль. */
 
-let numberForWeek = 3;
+const checkAllDays =(numberForWeek) =>{
+    switch (numberForWeek) {
+        case 1:
+            console.log('Monday');
+            break;
+        case 2:
+            console.log('Tuesday');
+            break;
+        case 3:
+            console.log('Wednesday');
+            break;
+        case 4:
+            console.log('Thursday');
+            break;
+        case 5:
+            console.log('Friday');
+            break;
+        case 6:
+            console.log('Saturday');
+            break;
+        case 7:
+            console.log('Sunday');
+            break;
+        default:
+            console.log('Wrong day');
+    }
 
-switch (numberForWeek) {
-    case 1:
-        console.log('Monday');
-        break;
-    case 2:
-        console.log('Tuesday');
-        break;
-    case 3:
-        console.log('Wednesday');
-        break;
-    case 4:
-        console.log('Thursday');
-        break;
-    case 5:
-        console.log('Friday');
-        break;
-    case 6:
-        console.log('Saturday');
-        break;
-    case 7:
-        console.log('Sunday');
-        break;
-    default:
-        console.log('Wrong day');
 }
+
+checkAllDays(3)
 
 //#7
 /* За допомогою switch реалізуйте обчислення виразу, передаючи у switch, як параметр, символ математичної операції.
     Математичні операції для обчислення: "+", "-", "*", "/".
     Результат виводити в консоль.  */
 
-let d = 10;
-let e = 5;
-let operation = "*";
-let result;
+let operation = "+";
 
-switch (operation) {
-    case "+":
-        result = d + e;
-        console.log(result);
-        break;
-    case "-":
-        result = d - e;
-        console.log(result);
-        break;
-    case "*":
-        result = d * e;
-        console.log(result);
-        break;
-    case "/":
-        result = d / e;
-        console.log(result);
-        break;
-    default:
-        console.log('Stop calculation');
-}
+const sum = (d, e) => {
+    let result;
+
+    switch (operation) {
+        case "+":
+            result = d + e;
+            console.log(result);
+            break;
+        case "-":
+            result = d - e;
+            console.log(result);
+            break;
+        case "*":
+            result = d * e;
+            console.log(result);
+            break;
+        case "/":
+            result = d / e;
+            console.log(result);
+            break;
+        default:
+            console.log('Stop calculation');
+    }
+};
+
+sum(2, 3);
 
 //#8
 /* Використовуючи цикл for перемістити значення від 1 до 5 у масив myArray. */
 
 let myArray = [];
+const someArray = (myArray) =>{
 
-for (let i = 1; i <= 5; i++) {
-    myArray.push(i);
+    for (let i = 1; i <= 5; i++){
+        myArray.push(i);
+
+    }
+    console.log(myArray);
 }
-console.log(myArray);
+someArray(myArray);
 
 //# 9
 /*Напишіть 2 цикли.
    За допомогою першого передайте парні числа від 1 до 9 у змінну myArray за допомогою циклу for.
    За допомогою другого передайте непарні числа від 1 до 9 у змінну myArray за допомогою циклу for.*/
 
-let newArr= [];
-for (let i = 1; i <= 9; i++) {
-    if (i % 2===0) {
-        newArr.push(i);
-    }
-}
-console.log( newArr);
+const getSomeNumbers = () => {
+    let newArray = [];
 
-let new2Arr= [];
-for (let i = 1; i <= 9; i++) {
-    if (i % 2!==0) {
-        new2Arr.push(i);
+    for (let i = 1; i <= 9; i++) {
+        if (i % 2 === 0) {
+            newArray.push(i);
+        }
     }
-}
-console.log(new2Arr);
+
+    return newArray;
+};
+
+console.log(getSomeNumbers());
+
+const  getOddNumbers = () => {
+    let new2Array = [];
+
+    for (let i = 1; i <= 9; i++) {
+        if (i % 2!==0) {
+            new2Array.push(i);
+        }
+    }
+
+    return new2Array;
+};
+
+console.log( getOddNumbers());
+
 
 //#10
 /*
@@ -194,12 +223,16 @@ console.log(new2Arr);
     Використовуйте цикл for, щоб додати значення кожного елемента масиву myArr до підсумку.
     const myArr = [2, 3, 4, 5, 6]; */
 
-let total =0;
+let total = 0;
 const myArr = [2, 3, 4, 5, 6];
 
-for (let i = 0; i < myArr.length; i++) {
-     total += myArr[i];
+function result2(total, myArr) {
+    for (let i = 0; i < myArr.length; i++) {
+        total += myArr[i];
+    }
+    return total;
 }
+total = result2(total, myArr);
 console.log(total);
 
 //#11
@@ -215,11 +248,15 @@ console.log(total);
 
 const arr = [ [1, 2], [3, 4], [5, 6] ];
 
-for(let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr[i].length; j++) {
-        console.log(arr[i][j]);
+let funcArr = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[i].length; j++) {
+            console.log(arr[i][j]);
+        }
     }
-}
+};
+
+funcArr(arr);
 
 //#12
 /*Доповніть код нижче, так щоб в консоль повертався результат множення усіх чисел у підмасивах arr.
@@ -237,50 +274,32 @@ for(let i = 0; i < arr.length; i++) {
     // тут має бути ваше рішення
 
     console.log(product); */
-//a
-const sumArr = [[1], [2], [3]];
-let product = 1;
 
-for(let i=0; i< sumArr.length; i++) {
-    for (let j=0; j< sumArr[i].length; j++) {
-        product*=(sumArr[i][j]);
-    }
-
-}
-console.log(product);
-//b
-const sumArr1 = [[1, 2], [3, 4], [5, 6, 7]];
-let product1 = 1;
-
-for(let i=0; i< sumArr1.length; i++) {
-    for (let j=0; j< sumArr1[i].length; j++) {
-        product1*=(sumArr1[i][j]);
-    }
-
-}
-console.log(product1);
-
-//c
 const sumArr2 = [[5, 1], [0.2, 4, 0.5], [3, 9]];
-
 let product2 = 1;
+const resultForArr = () => {
 
-for(let i=0; i< sumArr2.length; i++) {
-    for (let j=0; j< sumArr2[i].length; j++) {
-        product2*=(sumArr2[i][j]);
+    for(let i=0; i< sumArr2.length; i++) {
+        for (let j=0; j< sumArr2[i].length; j++) {
+            product2*=(sumArr2[i][j]);
+
+        }
+
     }
-
 }
+resultForArr();
 console.log(product2);
-
 
 //#13
 /*  Використовуючи властивості рядків (тип string), та регулярний вираз (regular expression) видалити голосні букви зі слова. */
 
-let someWords = 'Beautiful place';
-let someNewWords = someWords.replace(/[aeiou]/gi, '');
-console.log(someNewWords);
+function removeVowels(words) {
+    return words.replace(/[aeiou]/gi, '');
+}
 
+let someWords = 'Beautiful place';
+let someNewWords = removeVowels(someWords);
+console.log(someNewWords);
 
 //#14
 /* Використовуючи оператор if реалізувати логіку переводу метрів в кілометри,
@@ -292,22 +311,34 @@ console.log(someNewWords);
     Дані (метри) для перевірки написаного рішення: [0, 5, 11, 19, 21, 101, 1001, 2, 3, 4, 22, 23, 24, 10, 20, 25, 30, 40, 1.5, 2.3, 100.7] */
 
 
-let metersArray = [0, 5, 11, 19, 21, 101, 1001, 2, 3, 4, 22, 23, 24, 10, 20, 25, 30, 40, 1.5, 2.3, 100.7];
+let isSomeConvert = (metersArray) =>{
+    let kilometr = metersArray/1000;
+    let someArr = [metersArray, kilometr];
+    let resultsAccount = "";
 
-metersArray.forEach(meters => {
-    let kilometers = meters / 1000;
-    let kmText = (kilometers % 10 === 1 && kilometers % 100 !== 11) ? 'кілометр' : (kilometers >= 2 && kilometers <= 4) ? 'кілометри' : 'кілометрів';
-    let mText = (meters % 10 === 1 && meters % 100 !== 11) ? 'метр' : (meters >= 2 && meters <= 4) ? 'метри' : 'метрів';
+    for (let i = 0; i< someArr.length; i++) {
+        let numbers = someArr[i];
+        let ending = "";
+        if (numbers === Math.round(numbers)) {
+            if (numbers >= 5 && numbers <= 19) {
+                ending = "ів"
+            } else if (numbers % 10 === 1) {
+                ending = ""
+            } else if ((numbers >= 2 && numbers <= 4) || (numbers % 10 >= 2 && numbers % 10 <= 4)) {
+                ending = "и"
+            } else if (numbers % 10 === 0 || numbers % 10 >= 5 && numbers % 10 <= 10) {
+                ending = "ів"
+            }
+        } else {
+            ending = "а"
+        }
+        if (i === 0) {
+            resultsAccount = (`${metersArray} метр${ending} це`);
+        } else {
+            resultsAccount = `${resultsAccount} ${kilometr} кілометр${ending}`;
 
-    if (meters % 10 === 1 && meters % 100 !== 11) {
-        console.log(`${meters} ${mText} це ${kilometers.toFixed(3)} ${kmText}`);
-    } else if (meters >= 2 && meters <= 4) {
-        console.log(`${meters} ${mText} це ${kilometers.toFixed(3)} ${kmText}`);
-    } else if (meters >= 5) {
-        console.log(`${meters} ${mText} це ${kilometers.toFixed(3)} ${kmText}`);
-    } else {
-        console.log(`${meters} ${mText} це ${kilometers.toFixed(3)} ${kmText}`);
+        }
     }
-});
-
-
+    console.log(resultsAccount);
+}
+isSomeConvert(1100);
