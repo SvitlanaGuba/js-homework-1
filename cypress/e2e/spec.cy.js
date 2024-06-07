@@ -49,12 +49,11 @@ describe('Check radio button', () => {
     cy.get('div').contains('span.text', 'Option 2');
     cy.get('div').contains('span.text', 'Disabled Option');
 
-    // cy.get('body div nb-radio-group nb-radio:nth-child(3)').should('be.disabled');
-    // cy.get('span[class="text"]').eq(1).click();
-    // cy.get('input[class="text"]').eq(0).should('be.disabled');
-    // cy.get('span[class="text"]').eq(3).should('be.disabled');
 
 
+    cy.get('nb-radio').eq(1).find('input[type="radio"]').check({ force: true });
+
+    cy.get('nb-radio').eq(2).find('input[type="radio"]').should('be.disabled');
 
   })
 })
