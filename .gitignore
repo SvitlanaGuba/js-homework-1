@@ -1,7 +1,2 @@
 .idea
-.idea/Homework2.iml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
-.idea/.gitignore
-.idea/workspace.xml
+node_modules
