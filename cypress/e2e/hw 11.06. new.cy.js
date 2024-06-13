@@ -97,7 +97,7 @@ describe('testing "Toastr" submenu', () => {
 
         cy.get('nb-toastr-container nb-toast').then(element =>{
           expect(element).to.have.css('background-color', 'rgb(96, 175, 32)');
-        })
+        });
 
       cy.get('nb-toastr-container nb-toast').should('have.css', 'background-color', expectedResult.color);
       cy.get('nb-toastr-container nb-toast div span').should('have.text', expectedResult.title);
